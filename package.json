@@ -1,0 +1,22 @@
+{
+  "name": "binance-alert-bot",
+  "version": "1.0.0",
+  "description": "Telegram bot for monitoring Binance crypto prices",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "start:rest": "node src/index.js --rest-api-only",
+    "dev": "nodemon src/index.js",
+    "railway:start": "node src/index.js"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "dependencies": {
+    "node-telegram-bot-api": "^0.64.0",
+    "binance-api-node": "^0.12.6",
+    "dotenv": "^16.3.1",
+    "node-schedule": "^2.1.1",
+    "nodemon": "^3.0.1"
+  }
+} 
