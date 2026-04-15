@@ -1,7 +1,13 @@
 require('dotenv').config();
 
+const telegramToken = (
+  process.env.TELEGRAM_BOT_TOKEN ||
+  process.env.TELEGRAM_TOKEN ||
+  process.env.BOT_TOKEN
+);
+
 module.exports = {
-  telegramToken: process.env.TELEGRAM_BOT_TOKEN,
+  telegramToken: telegramToken ? telegramToken.trim() : '',
   binanceApiKey: process.env.BINANCE_API_KEY,
   binanceApiSecret: process.env.BINANCE_API_SECRET,
   defaultAlertThreshold: 5, // 5% price change by default

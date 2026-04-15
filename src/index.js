@@ -30,6 +30,13 @@ if (useRestApiOnly) {
   binanceService.disableWebSocket();
 }
 
+if (!config.telegramToken) {
+  const telegramEnvKeys = Object.keys(process.env).filter((key) => key.includes('TELEGRAM'));
+  console.error('Missing Telegram bot token. Set TELEGRAM_BOT_TOKEN in Railway variables.');
+  console.error('Detected TELEGRAM-related env keys:', telegramEnvKeys);
+  process.exit(1);
+}
+
 // Initialize the Telegram bot
 console.log('Initializing Telegram bot...');
 const bot = new TelegramBot(config.telegramToken, { polling: true });
